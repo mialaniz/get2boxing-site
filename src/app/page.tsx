@@ -16,19 +16,21 @@ export default function Page() {
             <Navbar/>
             <Section className="w-full py-12 md:py-24 lg:py-32 px-6">
                 <Container>
-                    <div className="grid lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+                    <div className="grid lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_900px]">
                         <Image
-                            src={"/images/boxing.jpg"}
-                            width="3000"
-                            height="300"
+                            src={"/images/boxing-3.jpg"}
+                            width="1000"
+                            height="600"
                             alt="Hero"
-                            className="mx-auto aspect-video overflow-hidden rounded-xl object-cover"
+                            className="mx-auto w-auto h-auto aspect-video rounded-xl"
                         />
-                        <div className="flex flex-col justify-center space-y-4">
+                        <div className="my-4 max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
                             <div>
+                                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                                    Meet the founders.
+                                </h1>
                                 <Text as={'p'} className="my-4 max-w-[600px] text-gray-500 md:text-xl dark:text-gray-700">
-                                    Give your team the education that they deserve. With thousands of courses,
-                                    you can elevate your mind. Get ya money up not ya funny up.
+                                    Bio goes here.
                                 </Text>
                             </div>
                         </div>
