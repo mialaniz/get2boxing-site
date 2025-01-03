@@ -5,13 +5,32 @@ import {Box, Container, Grid, Heading, Section, Text} from "@radix-ui/themes";
 
 export default function () {
   return (
-    <div className="w-full h-13 bg-[#0d21a1]">
+    <div className="w-full h-13 bg-[#0d21a1] flex items-center">
       <Image
       src={"/images/boxing-4.png"}
       width="150"
       height="150"
       alt="Hero"    
-      /> 
+      />
+
+        <div className="flex justify-center pl-[500px]">
+          <Text className="text-lg">
+            Store
+          </Text>
+        </div>
+
+
+        <div className="flex justify-center pl-52">
+          <Text className="text-lg">
+            About
+          </Text>
+        </div>
+
+        <div className="flex justify-center pl-52">
+          <Text className="text-lg">
+            Contact
+          </Text>
+        </div>
     </div>
   )
 }

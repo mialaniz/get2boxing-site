@@ -77,25 +77,15 @@ export default function Page() {
             <Section className="w-full px-6 py-12 md:py-24 lg:py-32 bg-gray-100 bg-[#0e6aff]">
                 <Container className="grid items-center justify-center gap-4 px-4 text-center md:px-6">
                     <Box className="space-y-3">
-                        <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-                            Trusted and Backed by America&#39;s Most Trusted Companies
+                        <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight text-gray-950">
+                            Gym Locations
                         </h2>
-                        <Text as={'p'} className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                            If you can trust them with your personal data, you can trust us with your business.
-                        </Text>
                     </Box>
+
                     <Grid columns={'4'}>
-                        {logos.map((logo) => (
-                            <Image
-                                key={logo}
-                                src={`/images/logos/${logo}-logo.png`}
-                                width="200"
-                                height="100"
-                                alt={logo}
-                                className="mx-auto grayscale opacity-85	"
-                                objectFit={'contain'}
-                            />
-                        ))}
+                        <Text className = "mx-auto text-gray-950">
+                        3365 Mission Ave Suite F, Oceanside, CA 92058
+                        </Text>
                     </Grid>
                 </Container>
             </Section>
