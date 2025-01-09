@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from "next/image";
 import {Box, Container, Grid, Heading, Section, Text} from "@radix-ui/themes";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-
-export default function () {
+export default function Navbar() {
   return (
     <div className="w-full h-13 bg-[#0d21a1] flex items-center">
       <Image
@@ -30,6 +30,10 @@ export default function () {
           <Text className="text-lg">
             Contact
           </Text>
+        </div>
+
+        <div className="flex justify-center pl-52">
+          <ShoppingCartIcon style={{ color: 'red' }}/>
         </div>
     </div>
   )
