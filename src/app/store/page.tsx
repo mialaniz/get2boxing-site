@@ -9,11 +9,16 @@ import ProductGrid from "@/components/ProductGrid";
 import Footer from "@/components/Footer";
 
 
+async function ShopPage({
+  params, 
+}: 
+{
+  params: Promise<{slug: string}>;
+}) {
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)
+  const {slug} = await params;
 
 
-export default function ShopPage() {
   return (
     <div className="min-h-screen flex flex-col bg-yellow-50">
       <main className="flex-grow container mx-auto px-4 py-8">
@@ -24,3 +29,5 @@ export default function ShopPage() {
     </div>
   )
 }
+
+export default ShopPage;
