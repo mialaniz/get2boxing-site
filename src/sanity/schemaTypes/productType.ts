@@ -53,7 +53,4 @@ export const productType = defineType({
             }
         }
     },
-
-
-
 });
