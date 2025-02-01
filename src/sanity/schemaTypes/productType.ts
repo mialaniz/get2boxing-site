@@ -9,7 +9,7 @@ export const productType = defineType({
     fields:[
         defineField({
             name:'name',
-            title: 'productName',
+            title: 'Product Name',
             type: 'string',
         }),
         defineField({
@@ -49,7 +49,7 @@ export const productType = defineType({
             return{
                 title: select.title,
                 media: select.media,
-                subtitle: select.price
+                subtitle: `$${select.price}`
             }
         }
     },

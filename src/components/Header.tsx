@@ -15,7 +15,7 @@ export default function Header(storeItem: any) {
 
     return (
       <header className="bg-primary text-white">
-        <div className="container mx-auto px-4 py-2 flex justify-between items-center">
+        <div className="container mx-auto px-4 py-2 flex justify-between items-center bg-blue-600">
           <Link href="/" className="flex items-center">
             <Image src="/images/boxing-4.png" alt="Get2Boxing Logo" width={150} height={100} />
           </Link>
