@@ -1,31 +1,24 @@
-'use client'
-
-import { loadStripe } from "@stripe/stripe-js";
-import Link from "next/link"
-import {Box, Container, Grid, Heading, Section, Text} from "@radix-ui/themes";
-import Image from "next/image";
-import Header from "@/components/Header";
-import { ProductGrid } from "./ProductGrid";
 import Footer from "@/components/Footer";
 import { Product } from "../../../sanity.types";
+import ProductsView from "@/components/ProoductsView";
+import { getAllProducts } from "../sanity/products/getAllProducts";
 
 
-interface ProductsViewProps {
-  products: Product[];
-}
 
 
-const ShopPage = ({products} : ProductsViewProps) => {
+export default async function ShopPage(){
 
+  const products = await getAllProducts();
+
+  console.log(products)
   return (
     <div className="min-h-screen flex flex-col bg-yellow-50">
       <main className="flex-grow container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-blue-900 mb-8">Shop</h1>
-        <ProductGrid products={products}/>
+        <ProductsView products={products}/>
       </main>
       <Footer />
     </div>
   )
 }
 
-export default ShopPage;

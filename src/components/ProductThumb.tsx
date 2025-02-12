@@ -1,10 +1,11 @@
-import { Product } from "../../../sanity.types";
+import { Product } from "../../sanity.types";
 import { imageUrl } from "@/lib/imageUrl";
 import Link from "next/link";
 import Image from "next/image";
 
 export const ProductThumb = ({product}: {product: Product}) => {
 
+    console.log(product.name)
     return (
         <Link
             href={`/product/${product.slug?.current}`}
