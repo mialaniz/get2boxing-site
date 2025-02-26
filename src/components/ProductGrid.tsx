@@ -1,7 +1,7 @@
 "use client"
 
 import { Product } from "../../sanity.types";
-import { imageUrl } from "@/lib/imageUrl";
+import { imageUrl } from "@/app/sanity/lib/imageUrl";
 import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
@@ -23,7 +23,7 @@ export const ProductGrid = ({products}:{products: Product[]}) => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {products.map((product) => (
-            <Card className="group relative overflow-hidden">
+            <Card key={product._id} className="group relative overflow-hidden">
               <CardHeader className="p-0">
                 <div className="relative aspect-square overflow-hidden">
                 {product.image && (
