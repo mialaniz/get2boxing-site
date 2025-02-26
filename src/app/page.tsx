@@ -84,7 +84,7 @@ export default function Home() {
                   Multiple Locations
                 </h3>
                 <p className="text-muted-foreground">
-                  Convenient locations across the city. Find a gym that's close to you and start training.
+                  Convenient locations across the city. Find a gym that is close to you and start training.
                 </p>
               </div>
               <div className="space-y-4">
