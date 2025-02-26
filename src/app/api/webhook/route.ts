@@ -1,7 +1,7 @@
 import Stripe from "stripe";
 import { NextResponse, NextRequest } from "next/server";
 
-const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!)
+const stripe = new Stripe(process.env.STRIPE_PUBLIC_KEY!)
 
 export async function POST(req: NextRequest) {
 
@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
 
     const sig = req.headers.get("Stripe-Signature");
     try {
-        const event = stripe.webhooks.constructEvent(payload, sig!, process.env.NEXT_PUBLIC_STRIPE_WEBHOOKS!);
+        const event = stripe.webhooks.constructEvent(payload, sig!, process.env.STRIPE_WEBHOOK_SECRET!);
         //console.log("event: ", event.type);
 
         return NextResponse.json({status: "success", event: event.type});
