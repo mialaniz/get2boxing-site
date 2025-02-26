@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
 
     const sig = req.headers.get("Stripe-Signature");
     try {
-        let event = stripe.webhooks.constructEvent(payload, sig!, process.env.NEXT_PUBLIC_STRIPE_WEBHOOKS!);
+        const event = stripe.webhooks.constructEvent(payload, sig!, process.env.NEXT_PUBLIC_STRIPE_WEBHOOKS!);
         //console.log("event: ", event.type);
 
         return NextResponse.json({status: "success", event: event.type});

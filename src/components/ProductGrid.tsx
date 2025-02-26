@@ -1,12 +1,9 @@
 "use client"
 
 import { Product } from "../../sanity.types";
-import { ProductThumb } from "./ProductThumb";
 import { imageUrl } from "@/lib/imageUrl";
 import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-
-
 
 export const ProductGrid = ({products}:{products: Product[]}) => {
     return(
