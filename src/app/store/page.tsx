@@ -1,5 +1,3 @@
-import Footer from "@/components/Footer";
-import { Product } from "../../../sanity.types";
 import ProductsView from "@/components/ProoductsView";
 import { getAllProducts } from "../sanity/products/getAllProducts";
 

@@ -2,7 +2,6 @@ import { Product } from "../../sanity.types";
 import { imageUrl } from "@/lib/imageUrl";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@radix-ui/themes";
 
 export const ProductThumb = ({product}: {product: Product}) => {
 

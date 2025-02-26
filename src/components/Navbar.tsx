@@ -1,10 +1,8 @@
 import React from 'react';
-import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, MapPin, Phone, ShoppingBag, Star } from "lucide-react"
+import {MapPin, Phone, ShoppingBag} from "lucide-react"
 import { Button } from "@/components/ui/button"
-import {Box, Container, Grid, Heading, Section, Text} from "@radix-ui/themes";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
 
 export default function Navbar() {
   return (

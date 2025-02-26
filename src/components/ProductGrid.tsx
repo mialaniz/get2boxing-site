@@ -3,13 +3,9 @@
 import { Product } from "../../sanity.types";
 import { ProductThumb } from "./ProductThumb";
 import { imageUrl } from "@/lib/imageUrl";
-import Link from "next/link";
 import Image from "next/image";
-import { Filter, ShoppingCart } from "lucide-react"
-
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+
 
 
 export const ProductGrid = ({products}:{products: Product[]}) => {

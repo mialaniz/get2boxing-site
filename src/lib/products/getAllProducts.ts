@@ -1,6 +1,5 @@
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "@/sanity/lib/live";
-import { SanityClient } from "next-sanity";
 
 export const getAllProducts = async () => {
 
@@ -18,7 +17,7 @@ export const getAllProducts = async () => {
         return products.data || [];
 
     } catch(error) {
-        console.error("Could not get products.")
+        console.error("Could not get products.", error);
         return [];
     }
 

@@ -1,5 +1,5 @@
 import { BasketIcon } from "@sanity/icons";
-import {defineArrayMember, defineField, defineType} from 'sanity';
+import {defineField, defineType} from 'sanity';
 
 export const orderType = defineType({
 
@@ -89,7 +89,6 @@ export const orderType = defineType({
             email: 'email',
         },
         prepare(select) {
-            const orderIdSnippet = `${select.orderId.slice(0,5)}...${(select.orderId.slice(-5))}`;
             return{
                 title: `${select.name}`,
                 subtitle: `${select.amount} ${select.currency}, ${select.email}`,
