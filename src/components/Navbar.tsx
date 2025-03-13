@@ -3,9 +3,13 @@ import Link from "next/link"
 import {MapPin, Phone, ShoppingBag} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from 'next/image';
+import useBasketStore from '@/app/sanity/lib/store';
 
 
 export default function Navbar() {
+  
+ 
+  
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white">
       <div className="container flex h-16 items-center px-4 md:px-6">

@@ -332,10 +332,10 @@ export type SanityImageMetadata = {
 
 export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Product | Post | Author | Category | Slug | BlockContent | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
-// Source: ./src/lib/products/getAllProducts.ts
-// Variable: get_all_products
-// Query: *[            _type == "product"        ] | order(name asc)
-export type Get_all_productsResult = Array<{
+// Source: ./src/app/sanity/products/getProductBySlug.ts
+// Variable: PRODUCT_BY_ID_QUERY
+// Query: *[            _type == "product" && slug.current == $slug        ]    | order(name asc) [0]
+export type PRODUCT_BY_ID_QUERYResult = {
   _id: string;
   _type: "product";
   _createdAt: string;
@@ -385,12 +385,12 @@ export type Get_all_productsResult = Array<{
     _key: string;
   }>;
   price?: number;
-}>;
+} | null;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "\n        *[\n            _type == \"product\"\n        ] | order(name asc)\n    ": Get_all_productsResult;
+    "\n        *[\n            _type == \"product\" && slug.current == $slug\n        ]    | order(name asc) [0]\n    ": PRODUCT_BY_ID_QUERYResult;
   }
 }
