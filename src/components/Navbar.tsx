@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from "next/link"
-import {MapPin, Phone, ShoppingBag} from "lucide-react"
+import {MapPin, Phone, ShoppingBag, ShoppingCart} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from 'next/image';
 import useBasketStore from '@/app/sanity/lib/store';
@@ -58,6 +58,16 @@ export default function Navbar() {
           Menu
         </Button>
     
+            
+      <Link
+        href="/cart"
+        className="flex item-center text-lg font-medium text-muted-foreground hover:text-secondary"  
+      >
+        <ShoppingCart className="h-4 w-4"/>
+
+      </Link>
+
+
       </div>
     </header>
   
