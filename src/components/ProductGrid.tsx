@@ -1,8 +1,9 @@
-"use client"
+
 
 import { Product } from "../../sanity.types";
 import { imageUrl } from "@/app/sanity/lib/imageUrl";
 import Image from "next/image";
+import Link from "next/link";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 export const ProductGrid = ({products}:{products: Product[]}) => {
@@ -22,9 +23,21 @@ export const ProductGrid = ({products}:{products: Product[]}) => {
       </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          
+
+          
           {products.map((product) => (
-            <Card key={product._id} className="group relative overflow-hidden">
+            
+            <Link
+              key={product._id}
+              href={`/store/${typeof product.slug === "string" ? product.slug : product.slug?.current}`}
+            >
+              
+
+            <Card className="group relative overflow-hidden">
               <CardHeader className="p-0">
+                
+                
                 <div className="relative aspect-square overflow-hidden">
                 {product.image && (
                   <Image
@@ -35,8 +48,8 @@ export const ProductGrid = ({products}:{products: Product[]}) => {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 
-            )}
-            </div>
+                )}
+              </div>
               </CardHeader>
               <CardContent className="p-4">
                 <div className="flex justify-between items-start">
@@ -49,7 +62,9 @@ export const ProductGrid = ({products}:{products: Product[]}) => {
               <CardFooter className="p-4 pt-0">
               </CardFooter>
             </Card>
+            </Link>
           ))}
+          
         </div>
         </div>
         </main>
