@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -6,12 +6,9 @@ import { Input } from "./ui/input"
 import { useCart } from "./Cart-Provider"
 import { ShoppingCart, Check } from "lucide-react"
 import { useCartAmount } from "@/app/lib/store";
-import { getAllProducts } from "@/app/sanity/products/getAllProducts"
 
-
-export default async function AddToCartButton({ product }: { product: any }) {
+export default function AddToCartButton({ product, boughtProduct }: { product: any, boughtProduct: any }) {
   const { addToCart } = useCart()
-  const boughtProduct = await getAllProducts(); 
 
   const [quantity, setQuantity] = useState(1)
   const [isAdded, setIsAdded] = useState(false)
@@ -56,6 +53,7 @@ export default async function AddToCartButton({ product }: { product: any }) {
             size="icon"
             className="h-10 w-10 rounded-l-none"
             onClick={() => {
+              setQuantity(Math.max(quantity+1))
               increaseCount(); 
               increaseTotalCartAmount(boughtProduct.price);
             }}

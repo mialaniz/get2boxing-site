@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getProductBySlug } from "@/app/sanity/products/getProductBySlug";
 import { Star, ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import AddToCartButton from "@/components/Add-To-Cart-Button";
+import AddToCartWrapper from "@/components/wrappers/Add-To-Cart-Wrapper";
 import { imageUrl } from "@/app/sanity/lib/imageUrl";
 import { PortableText } from "@portabletext/react"; // Import PortableText
 
@@ -57,7 +57,7 @@ async function ProductPage({ params }: { params: { slug: string } }) {
           </div>
 
           <div className="mt-auto">
-            <AddToCartButton product={product} />
+            <AddToCartWrapper product={product} />
           </div>
         </div>
       </div>
