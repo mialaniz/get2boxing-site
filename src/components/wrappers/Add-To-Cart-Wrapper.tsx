@@ -1,12 +1,9 @@
 import AddToCartButton from "../Add-To-Cart-Button";
-import { getAllProducts } from "@/app/sanity/products/getAllProducts";
 
-export default async function AddToCartWrapper({product} : {product: any}) {
+export default async function AddToCartWrapper({product, boughtPrice} : {product: any, boughtPrice: number}) {
     
-    const boughtProduct = getAllProducts();
-
     return (
-        <AddToCartButton product={product} boughtProduct={boughtProduct}/>
+        <AddToCartButton product={product} boughtProduct={boughtPrice}/>
     )
 
 }

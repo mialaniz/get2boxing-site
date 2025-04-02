@@ -1,9 +1,6 @@
 import ProductsView from "@/components/ProoductsView";
 import { getAllProducts } from "../sanity/products/getAllProducts";
 
-
-
-
 export default async function ShopPage(){
 
   const products = await getAllProducts();

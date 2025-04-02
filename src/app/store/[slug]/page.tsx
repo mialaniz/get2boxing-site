@@ -57,7 +57,7 @@ async function ProductPage({ params }: { params: { slug: string } }) {
           </div>
 
           <div className="mt-auto">
-            <AddToCartWrapper product={product} />
+            <AddToCartWrapper product={product} boughtPrice={product.price} />
           </div>
         </div>
       </div>

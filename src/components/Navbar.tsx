@@ -1,21 +1,37 @@
-import React from 'react';
+"use client"
+
+import React, { useState, useEffect } from 'react';
 import Link from "next/link"
 import {MapPin, Phone, ShoppingBag, ShoppingCart} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from 'next/image';
-import useBasketStore from '@/app/sanity/lib/store';
-
+import LoadingSpin from './LoadingSpin';
 
 export default function Navbar() {
-  
- 
-  
+
+  const [loading, setLoading] = useState(false);
+
+
+  useEffect(() => {
+    if (loading) {
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 2000); // Set back to false after 3 seconds
+
+      // Clear the timer if the component unmounts or the boolean changes before the timer finishes
+      return () => clearTimeout(timer);
+    }
+  }, [loading]);
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white">
       <div className="container flex h-16 items-center px-4 md:px-6">
         
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2"
+          onClick={() =>{
+            setLoading(true);
+          }}>
           <Image
             alt="Boxing Training"
             className="relative rounded-xl object-cover"
@@ -32,6 +48,9 @@ export default function Navbar() {
             <Link
               href="/store"
               className="flex items-center text-lg font-medium text-muted-foreground hover:text-secondary"
+              onClick={() =>{
+                setLoading(true);
+              }}
             >
               <ShoppingBag className="mr-2 h-4 w-4" />
               Store
@@ -39,6 +58,9 @@ export default function Navbar() {
             <Link
               href="/locations"
               className="flex items-center text-lg font-medium text-muted-foreground hover:text-secondary"
+              onClick={() =>{
+                setLoading(true);
+              }}
             >
               <MapPin className="mr-2 h-4 w-4" />
               Locations
@@ -46,6 +68,9 @@ export default function Navbar() {
             <Link
               href="/contact"
               className="flex items-center text-lg font-medium text-muted-foreground hover:text-secondary"
+              onClick={() =>{
+                setLoading(true);
+              }}
             >
               <Phone className="mr-2 h-4 w-4" />
               Contact
@@ -61,14 +86,17 @@ export default function Navbar() {
             
       <Link
         href="/cart"
-        className="flex item-center text-lg font-medium text-muted-foreground hover:text-secondary"  
+        className="flex item-center text-lg font-medium text-muted-foreground hover:text-secondary"
+        onClick={() =>{
+          setLoading(true);
+        }}
       >
         <ShoppingCart className="h-4 w-4"/>
 
       </Link>
 
-
-      </div>
+      <LoadingSpin isLoading={loading}></LoadingSpin>
+    </div>
     </header>
   
   )
