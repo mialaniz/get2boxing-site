@@ -13,9 +13,6 @@ export default function AddToCartButton({ product, boughtProduct }: { product: a
   const [quantity, setQuantity] = useState(1)
   const [isAdded, setIsAdded] = useState(false)
 
-  const itemCount = useCartAmount((state: any) => state.itemCount);
-  const cartTotalAmount = useCartAmount((state: any) => state.cartTotalAmount);
-
   const increaseTotalCartAmount = useCartAmount((state: any) => state.increaseCount);
   const increaseCount = useCartAmount((state: any) => state.increaseCount);
 
@@ -37,8 +34,6 @@ export default function AddToCartButton({ product, boughtProduct }: { product: a
     
   }
 
-
-
   return (
     <div className="flex w-full flex-col gap-4">
       <div className="flex items-center gap-2">
@@ -47,7 +42,7 @@ export default function AddToCartButton({ product, boughtProduct }: { product: a
             variant="outline"
             size="icon"
             className="h-10 w-10 rounded-r-none"
-            onClick={() => setQuantity(Math.max(1, quantity - 1))}
+            onClick={() => setQuantity(quantity - 1)}
           >
             -
           </Button>
@@ -64,7 +59,7 @@ export default function AddToCartButton({ product, boughtProduct }: { product: a
             className="h-10 w-10 rounded-l-none"
             onClick={() => {
               console.log('boughtProduct', quantity);
-              setQuantity(Math.max(quantity+1));
+              setQuantity(quantity+1);
             }}
           >
             +
