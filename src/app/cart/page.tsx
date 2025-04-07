@@ -3,10 +3,10 @@ import Link from "next/link"
 import { ArrowLeft, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
 import { getAllProducts } from "../sanity/products/getAllProducts"
+import { imageUrl } from "../sanity/lib/imageUrl"
+import { Product } from "../../../sanity.types"
 
 
 // Sample cart items - in a real app, this would come from a cart context or API
@@ -43,6 +43,8 @@ export default async function CheckoutPage() {
 
   const {products} = await getAllProducts(); 
 
+  console.log("getAllProducts Result: ", products);
+
   return (
     <div className="flex min-h-screen flex-col">
       <div className="container px-4 py-8">
@@ -67,26 +69,26 @@ export default async function CheckoutPage() {
                 <CardDescription>{cartItems.length} items in your cart</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                {cartItems.map((item) => (
-                  <div key={item.id} className="flex flex-col sm:flex-row gap-4 pb-4 border-b">
+                {products.map((product: Product) => (
+                  <div key={product._id} className="flex flex-col sm:flex-row gap-4 pb-4 border-b">
                     <div className="relative aspect-square sm:w-24 h-24 rounded-md overflow-hidden flex-shrink-0">
-                      <Image src={item.image || "/placeholder.svg"} alt={item.name} className="object-cover" fill />
+                      <Image 
+                        src={imageUrl(products.image).url()}
+                        alt={product.name || "Product Image"}
+                        className="object-cover" 
+                        fill 
+                        />
                     </div>
                     <div className="flex-grow space-y-1">
-                      <h3 className="font-bold impact-text">{item.name}</h3>
-                      <p className="text-sm text-muted-foreground">{item.category}</p>
-                      <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
-                        <span>Color: {item.color}</span>
-                        <span>Size: {item.size}</span>
-                      </div>
+                      <h3 className="font-bold impact-text">{product.name}</h3>
+                      
                     </div>
                     <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2 sm:gap-4">
-                      <div className="text-lg font-bold">${item.price}</div>
+                      <div className="text-lg font-bold">${product.price}</div>
                       <div className="flex items-center">
                         <Button variant="outline" size="icon" className="h-8 w-8 rounded-r-none">
                           <Minus className="h-3 w-3" />
                         </Button>
-                        <div className="h-8 w-8 flex items-center justify-center border-y">{item.quantity}</div>
                         <Button variant="outline" size="icon" className="h-8 w-8 rounded-l-none">
                           <Plus className="h-3 w-3" />
                         </Button>
@@ -138,30 +140,16 @@ export default async function CheckoutPage() {
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="promoCode">Promo Code</Label>
-                  <div className="flex space-x-2">
-                    <Input id="promoCode" placeholder="Enter code" className="flex-1" />
-                    <Button variant="outline">Apply</Button>
-                  </div>
-                </div>
+                
 
                 <Button className="w-full bg-secondary hover:bg-secondary/90 text-black varsity-border h-12 text-lg mt-4">
                   Complete Order
                 </Button>
 
-                <p className="text-xs text-center text-muted-foreground mt-2">
-                  By completing your order, you agree to our Terms of Service and Privacy Policy.
-                </p>
+                
               </CardContent>
               <CardFooter className="flex flex-col space-y-2 items-center text-center">
-                <div className="flex items-center justify-center space-x-2">
-                  <div className="h-8 w-12 bg-muted rounded"></div>
-                  <div className="h-8 w-12 bg-muted rounded"></div>
-                  <div className="h-8 w-12 bg-muted rounded"></div>
-                  <div className="h-8 w-12 bg-muted rounded"></div>
-                </div>
-                <p className="text-xs text-muted-foreground">Secure payment processing. Your data is protected.</p>
+                
               </CardFooter>
             </Card>
           </div>
