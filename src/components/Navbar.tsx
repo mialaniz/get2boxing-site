@@ -91,7 +91,7 @@ export default function Navbar() {
           setLoading(true);
         }}
       >
-        <ShoppingCart className="h-4 w-4"/>
+        <ShoppingCart className="h-5 w-5"/>
 
       </Link>
 
