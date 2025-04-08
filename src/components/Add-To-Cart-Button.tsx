@@ -15,6 +15,8 @@ export default function AddToCartButton({ product, boughtProduct }: { product: a
 
   const increaseTotalCartAmount = useCartAmount((state: any) => state.increaseCount);
   const increaseCount = useCartAmount((state: any) => state.increaseCount);
+  const addItemToCart = useCartAmount((state: any) => state.addItemToCart);
+  const removeItem = useCartAmount((state: any) => state.removeItem);
 
   const handleAddToCart = (price: any) => {
     addToCart({
@@ -29,8 +31,10 @@ export default function AddToCartButton({ product, boughtProduct }: { product: a
     }, 2000)
 
     
-      increaseTotalCartAmount(price);
-      increaseCount();
+    increaseTotalCartAmount(price);
+    increaseCount();
+    addItemToCart(product);
+    removeItem(product);
     
   }
 
@@ -60,6 +64,7 @@ export default function AddToCartButton({ product, boughtProduct }: { product: a
             onClick={() => {
               console.log('boughtProduct', quantity);
               setQuantity(quantity+1);
+
             }}
           >
             +
