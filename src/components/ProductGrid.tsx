@@ -8,7 +8,8 @@ import { Button } from "@radix-ui/themes";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 export const ProductGrid = ({products}:{products: Product[]}) => {
-    return(
+      
+  return(
         <main>
         <div className="flex min-h-screen flex-col">
         <div className="relative">

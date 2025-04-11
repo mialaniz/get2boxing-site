@@ -52,9 +52,9 @@ export default function Home() {
                 <Image
                   alt="Boxing Training"
                   className="relative rounded-xl object-cover"
-                  height="500"
-                  src="/placeholder.svg?height=500&width=800"
-                  width="800"
+                  height="200"
+                  src="/images/boxing-1.JPG"
+                  width="500"
                 />
               </div>
             </div>

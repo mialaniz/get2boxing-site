@@ -5,45 +5,17 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { getAllProducts } from "../sanity/products/getAllProducts"
-import { imageUrl } from "../sanity/lib/imageUrl"
-import { Product } from "../../../sanity.types"
+import { imageUrl } from "@/app/sanity/lib/imageUrl";
 
 
 // Sample cart items - in a real app, this would come from a cart context or API
-const cartItems = [
-  {
-    id: 1,
-    name: "PRO BOXING GLOVES",
-    category: "Training Gloves",
-    price: "89.99",
-    color: "Black",
-    size: "Medium (14oz)",
-    quantity: 1,
-    image: "/placeholder.svg?height=400&width=400",
-  },
-  {
-    id: 7,
-    name: "TRAINING PADS",
-    category: "Training Equipment",
-    price: "59.99",
-    color: "Red/Black",
-    size: "Standard",
-    quantity: 1,
-    image: "/placeholder.svg?height=400&width=400",
-  },
-]
+
 
 export default async function CheckoutPage() {
   // Calculate order summary
-  const subtotal = cartItems.reduce((sum, item) => sum + Number.parseFloat(item.price) * item.quantity, 0)
-  const shipping = subtotal > 100 ? 0 : 9.99
-  const tax = subtotal * 0.08
-  const total = subtotal + shipping + tax
+  const products = await getAllProducts();
+  console.log("Here are the products from the checkout page: ", products);
 
-
-  const {products} = await getAllProducts(); 
-
-  console.log("getAllProducts Result: ", products);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -66,14 +38,13 @@ export default async function CheckoutPage() {
                   <ShoppingBag className="mr-2 h-5 w-5" />
                   YOUR CART
                 </CardTitle>
-                <CardDescription>{cartItems.length} items in your cart</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                {products.map((product: Product) => (
+                {products.map((product: any) => (
                   <div key={product._id} className="flex flex-col sm:flex-row gap-4 pb-4 border-b">
                     <div className="relative aspect-square sm:w-24 h-24 rounded-md overflow-hidden flex-shrink-0">
                       <Image 
-                        src={imageUrl(products.image).url()}
+                        src={product.image ? imageUrl(product.image).url() : '/placeholder-image.jpg'}
                         alt={product.name || "Product Image"}
                         className="object-cover" 
                         fill 
@@ -123,20 +94,13 @@ export default async function CheckoutPage() {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Subtotal</span>
-                    <span>${subtotal.toFixed(2)}</span>
+                    <span>$ </span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Shipping</span>
-                    <span>{shipping === 0 ? "FREE" : `$${shipping.toFixed(2)}`}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Tax</span>
-                    <span>${tax.toFixed(2)}</span>
-                  </div>
+                  
                   <Separator className="my-2" />
                   <div className="flex justify-between font-bold text-lg">
                     <span>Total</span>
-                    <span>${total.toFixed(2)}</span>
+                    <span>$</span>
                   </div>
                 </div>
 
