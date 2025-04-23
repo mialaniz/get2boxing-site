@@ -122,13 +122,7 @@ export default function Home() {
 
       {/* Buttons */}
       <div className="flex flex-col gap-2 min-[400px]:flex-row">
-        <Button
-          variant="outline"
-          size="lg"
-          className="w-full min-[400px]:w-auto border-white text-black hover:bg-white/10"
-        >
-          Learn More
-        </Button>
+        
       </div>
       
     </div>

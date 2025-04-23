@@ -42,7 +42,7 @@ export default function Navbar() {
         </Link>
     
         {/* Centered Navigation */}
-        <div className="flex-1 flex justify-center md:pl-44">
+        <div className="flex-1 flex justify-center">
           
           <nav className="hidden md:flex gap-28 items-center">
             <Link
