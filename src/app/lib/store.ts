@@ -1,5 +1,4 @@
 import {create} from "zustand"
-import { Product } from "../../../sanity.types";
 
 export const useCartAmount = create((set) => ({
     

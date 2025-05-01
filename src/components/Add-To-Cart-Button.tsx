@@ -13,30 +13,30 @@ export default function AddToCartButton({ product, boughtProduct }: { product: a
   const [quantity, setQuantity] = useState(1)
   const [isAdded, setIsAdded] = useState(false)
 
+  const cartItemTotal = useCartAmount((state:any) => state.cartItemTotal);
   const increaseTotalCartAmount = useCartAmount((state: any) => state.increaseCount);
   const increaseCount = useCartAmount((state: any) => state.increaseCount);
   const addItemToCart = useCartAmount((state: any) => state.addItemToCart);
   const removeItem = useCartAmount((state: any) => state.removeItem);
 
-  const handleAddToCart = (price: any) => {
+  const handleAddToCart = () => {
+    const totalPrice = product.price * quantity;
+  
     addToCart({
       ...product,
       quantity,
-    })
-
-    setIsAdded(true)
-
-    setTimeout(() => {
-      setIsAdded(false)
-    }, 2000)
-
-    
-    increaseTotalCartAmount(price);
+    });
+  
+    //put this in cart amount
+    increaseTotalCartAmount(totalPrice);
     increaseCount();
     addItemToCart(product);
-    removeItem(product);
-    
-  }
+  
+    setIsAdded(true);
+    setTimeout(() => setIsAdded(false), 2000);
+  
+    console.log("Cart total log:", totalPrice);
+  };
 
   return (
     <div className="flex w-full flex-col gap-4">
@@ -71,7 +71,7 @@ export default function AddToCartButton({ product, boughtProduct }: { product: a
           </Button>
         </div>
 
-        <Button className="h-10 flex-1" onClick={() => handleAddToCart(boughtProduct * quantity)} disabled={isAdded}>
+        <Button className="h-10 flex-1" onClick={handleAddToCart} disabled={isAdded}>
           {isAdded ? (
             <>
               <Check className="mr-2 h-4 w-4" />
