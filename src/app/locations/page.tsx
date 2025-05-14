@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { MapPin, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -44,9 +43,9 @@ export default function LocationsPage() {
                         <div className="text-center md:text-left">
                         <h3 className="font-semibold mb-2">Address</h3>
                         <p className="text-muted-foreground">
-                            1234 Pacific Coast Highway
+                            3365 Mission Ave Suite F
                             <br />
-                            Oceanside, CA 92054
+                            Oceanside, CA 92058
                         </p>
                         
                         </div>
