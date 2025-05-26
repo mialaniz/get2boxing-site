@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProductBySlug } from "@/app/sanity/products/getProductBySlug";
-import { Star, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import AddToCartWrapper from "@/components/wrappers/Add-To-Cart-Wrapper";
 import { imageUrl } from "@/app/sanity/lib/imageUrl";

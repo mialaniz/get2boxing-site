@@ -1,12 +1,27 @@
 "use client"
 
-import { useState } from 'react';
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, ShoppingBag, Star } from "lucide-react"
+import { ShoppingBag, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import {useEffect, useState} from "react";
 
 export default function Home() {
+
+  const [loading, setLoading] = useState(false);
+
+
+  useEffect(() => {
+    if (loading) {
+      const timer = setTimeout(() => {
+        setLoading(false);
+      }, 2000); // Set back to false after 3 seconds
+
+      // Clear the timer if the component unmounts or the boolean changes before the timer finishes
+      return () => clearTimeout(timer);
+    }
+  }, [loading]);
+
 
   return (
     <div className="flex min-h-screen flex-col">
