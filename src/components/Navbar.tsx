@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from "next/link"
-import {MapPin, Phone, ShoppingBag, ShoppingCart} from "lucide-react"
+import {MapPin, ShoppingBag} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from 'next/image';
 import LoadingSpin from './LoadingSpin';
@@ -28,7 +28,7 @@ export default function Navbar() {
       <div className="container flex h-16 items-center px-4 md:px-6">
         
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2"
+        <Link href="/" className="flex justify-center items-center"
           onClick={() =>{
             setLoading(true);
           }}>
@@ -44,17 +44,7 @@ export default function Navbar() {
         {/* Centered Navigation */}
         <div className="flex-1 flex justify-center">
           
-          <nav className="hidden md:flex gap-28 items-center">
-            <Link
-              href="/store"
-              className="flex items-center text-lg font-medium text-muted-foreground hover:text-secondary"
-              onClick={() =>{
-                setLoading(true);
-              }}
-            >
-              <ShoppingBag className="mr-2 h-4 w-4" />
-              Store
-            </Link>
+          <nav className="hidden md:flex md:pl-32 gap-72 items-center justify-center">
             <Link
               href="/locations"
               className="flex items-center text-lg font-medium text-muted-foreground hover:text-secondary"
@@ -65,16 +55,7 @@ export default function Navbar() {
               <MapPin className="mr-2 h-4 w-4" />
               Locations
             </Link>
-            <Link
-              href="/contact"
-              className="flex items-center text-lg font-medium text-muted-foreground hover:text-secondary"
-              onClick={() =>{
-                setLoading(true);
-              }}
-            >
-              <Phone className="mr-2 h-4 w-4" />
-              Contact
-            </Link>
+
           </nav>
         </div>
     
@@ -82,18 +63,6 @@ export default function Navbar() {
         <Button variant="outline" className="md:hidden border-secondary text-secondary hover:bg-secondary/10">
           Menu
         </Button>
-    
-            
-      <Link
-        href="/cart"
-        className="flex item-center text-lg font-medium text-muted-foreground hover:text-secondary"
-        onClick={() =>{
-          setLoading(true);
-        }}
-      >
-        <ShoppingCart className="h-5 w-5"/>
-
-      </Link>
 
       <LoadingSpin isLoading={loading}></LoadingSpin>
     </div>

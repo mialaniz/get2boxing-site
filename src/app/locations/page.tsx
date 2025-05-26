@@ -166,6 +166,12 @@ export default function LocationsPage() {
 
   
 </section>
+
+            <footer className="w-full border-t py-6">
+                <div className="container flex flex-col items-center justify-between gap-4 px-4 md:flex-row md:px-6">
+                    <p className="text-sm text-gray-500">© 2024 Get2Boxing. All rights reserved.</p>
+                </div>
+            </footer>
         </div>
 
         

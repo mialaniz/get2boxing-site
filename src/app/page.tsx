@@ -30,20 +30,21 @@ export default function Home() {
                 journey today.
               </p>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button
-                  size="lg"
-                  className="w-full min-[400px]:w-auto bg-secondary hover:bg-secondary/90 text-black varsity-border"
+                <Link
+                    href="/locations"
+                    className="flex items-center text-lg font-medium text-muted-foreground hover:text-secondary"
+                    onClick={() =>{
+                      setLoading(true);
+                    }}
                 >
-                  Get Started
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="w-full min-[400px]:w-auto border-primary text-primary hover:bg-primary/10"
-                >
-                  View Locations
-                </Button>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full min-[400px]:w-auto border-primary text-primary hover:bg-primary/10"
+                  >
+                    View Locations
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="flex justify-center">
@@ -133,14 +134,6 @@ export default function Home() {
       <footer className="w-full border-t py-6">
         <div className="container flex flex-col items-center justify-between gap-4 px-4 md:flex-row md:px-6">
           <p className="text-sm text-gray-500">© 2024 Get2Boxing. All rights reserved.</p>
-          <nav className="flex gap-4 sm:gap-6">
-            <Link className="text-sm hover:underline" href="#">
-              Terms of Service
-            </Link>
-            <Link className="text-sm hover:underline" href="#">
-              Privacy
-            </Link>
-          </nav>
         </div>
       </footer>
     </div>
