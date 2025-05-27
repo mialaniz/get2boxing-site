@@ -67,7 +67,7 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
           <SheetTrigger asChild>
-            <Button variant="outline" className="md:hidden border-secondary text-secondary hover:bg-secondary/10">
+            <Button variant="outline" className="md:hidden border-secondary text-secondary hover:bg-secondary/10 mr-3">
               <Menu className="h-4 w-4" />
               <span className="sr-only">Toggle menu</span>
             </Button>
