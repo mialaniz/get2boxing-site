@@ -31,7 +31,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white">
       <div className="container flex h-16 items-center px-10 md:px-6">
-        
+        <div className="flex items-center sm:px-20 md:px-8">
         {/* Logo */}
         <Link href="/" className="flex justify-center items-center"
           onClick={() =>{
@@ -45,7 +45,7 @@ export default function Navbar() {
             width="200"
           />
         </Link>
-    
+        </div>
         {/* Centered Navigation */}
         <div className="flex-1 flex justify-center">
           
