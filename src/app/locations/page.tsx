@@ -55,7 +55,7 @@ export default function LocationsPage() {
                         <div className="space-y-1">
                             <div className="flex items-center gap-2 justify-center md:justify-start">
                             <Phone className="h-4 w-4 text-muted-foreground" />
-                            <span className="text-muted-foreground">(760) 555-1234</span>
+                            <span className="text-muted-foreground">(760) 500-5220</span>
                             </div>
                             <div className="flex items-center gap-2 justify-center md:justify-start">
                             </div>
